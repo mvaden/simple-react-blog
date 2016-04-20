@@ -14,6 +14,10 @@ var post = {
 
 var Post = React.createClass({
   render: function(){
+    var commentsList = this.props.comments.map(function(comment, index) {
+      return <Comment key={index} commentBody={comment} />
+    });
+
     return (
       <div>
         <h1>{this.props.title}</h1>
@@ -21,13 +25,21 @@ var Post = React.createClass({
         <p>{this.props.body}</p>
 
         <h2>Comments</h2>
-        <p>{this.props.comment}</p>
+        {commentsList}
       </div>
     )
   }
 });
 
+var Comment = React.createClass({
+  render: function(){
+    return (
+      <p>{this.props.commentBody}</p>
+    )
+  }
+})
+
 ReactDOM.render(
-  <Post title={post.title} author={post.author} body={post.body} comment={post.comments[0]}/>,
+  <Post title={post.title} author={post.author} body={post.body} comments={post.comments}/>,
   document.getElementById("app")
 );

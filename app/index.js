@@ -13,6 +13,17 @@ var post = {
 }
 
 var Post = React.createClass({
+  getInitialState: function(){
+    return {
+      body: post.body
+    }
+  },
+  editPost: function(){
+    newBody = prompt("What is the new post content?");
+    this.setState({
+      body: newBody
+    });
+  },
   render: function(){
     var commentsList = this.props.comments.map(function(comment, index) {
       return <Comment key={index} commentBody={comment} />
@@ -22,7 +33,9 @@ var Post = React.createClass({
       <div>
         <h1>{this.props.title}</h1>
         <p>By: {this.props.author}</p>
-        <p>{this.props.body}</p>
+        <p>{this.state.body}</p>
+
+        <button onClick={this.editPost}>Edit Post</button>
 
         <h2>Comments</h2>
         {commentsList}

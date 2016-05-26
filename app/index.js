@@ -16,32 +16,33 @@ var post = {
   ]
 }
 
-var Comment = [];
-// attempting to create an empty array that will list comments
-Comment = React.createClass({
+var Comment = React.createClass({
   render: function(){
     return(
-      <p>Comments: {this.props.body}</p>
+      <p>Comments: {this.props.commentBody}</p>
     )
   }
-})
+});
 
 // props = properties
 var Post = React.createClass({
   render: function(){
+    var commentsList = this.props.comments.map(function(comment, index){ // Gets properties from comments and maps them. Passes each comment, and
+      return < Comment key = {index} commentBody = {comment} />
+  });
+
     return (
       <div>
         <h1>{this.props.title}</h1>
         <p>By: {this.props.author}</p>
-        <p>{this.props.body}</p>
         <h3>Comments</h3>
-        <Comment body={post.comments} />
+        {commentList}
       </div>
     )
   }
 });
 
 ReactDOM.render(
-  <Post title={post.title} author={post.author} body={post.body} comments={post.comments[0]} />,
+  <Post title={post.title} author={post.author} body={post.body} comments={post.comments} />,
   document.getElementById("app")
 )

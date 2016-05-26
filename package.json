@@ -22,5 +22,13 @@
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   },
-  "description": ""
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mvaden/simple-react-blog.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mvaden/simple-react-blog/issues"
+  },
+  "homepage": "https://github.com/mvaden/simple-react-blog#readme"
 }

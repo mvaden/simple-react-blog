@@ -25,6 +25,7 @@ Comment = React.createClass({
     )
   }
 })
+
 // props = properties
 var Post = React.createClass({
   render: function(){
@@ -41,6 +42,6 @@ var Post = React.createClass({
 });
 
 ReactDOM.render(
-  <Post title={post.title} author={post.author} body={post.body} comment={post.comments[0]} />,
+  <Post title={post.title} author={post.author} body={post.body} comments={post.comments[0]} />,
   document.getElementById("app")
 )
